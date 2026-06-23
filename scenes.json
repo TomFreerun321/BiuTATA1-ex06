@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "title": "DRONEWATCH",
+    "subtitle": "Ground-Based Drone Early Warning System",
+    "fps": 30,
+    "durationSeconds": 60,
+    "resolution": { "width": 1920, "height": 1080 },
+    "model": "claude-sonnet-4-6"
+  },
+  "scenes": [
+    {
+      "id": "threat",
+      "label": "Scene 1 — The Threat",
+      "startFrame": 0,
+      "durationFrames": 600,
+      "theme": {
+        "background": "#0a0a0a",
+        "primary": "#cc2200",
+        "secondary": "#ff4422",
+        "text": "#ffffff",
+        "accent": "#ff0000"
+      },
+      "content": {
+        "superTitle": "THE THREAT",
+        "title": "FIBER OPTIC DRONES",
+        "subtitle": "Silent. Precise. Lethal.",
+        "warning": "NO WARNING. NO TIME.",
+        "description": "Soldiers exposed on the battlefield with no early detection system"
+      },
+      "animations": {
+        "soldierEntry": { "startFrame": 0, "duration": 60 },
+        "droneAppear": { "startFrame": 180, "duration": 30 },
+        "droneAttack": { "startFrame": 420, "duration": 90 },
+        "textReveal": { "startFrame": 60, "duration": 45 }
+      }
+    },
+    {
+      "id": "solution",
+      "label": "Scene 2 — The Solution",
+      "startFrame": 600,
+      "durationFrames": 600,
+      "theme": {
+        "background": "#020d1a",
+        "primary": "#0066cc",
+        "secondary": "#00aaff",
+        "text": "#ffffff",
+        "accent": "#00ff88"
+      },
+      "content": {
+        "superTitle": "DRONEWATCH ACTIVATED",
+        "title": "DRONEWATCH",
+        "subtitle": "Ground-Based Drone Early Warning System",
+        "detectionRange": "400–500 METER DETECTION RADIUS",
+        "alertTime": "ALERT TIME: UNDER 3 SECONDS",
+        "technology": "ACOUSTIC + MOTION DETECTION",
+        "status": "Soldiers alerted. Soldiers moving. Soldiers safe."
+      },
+      "animations": {
+        "logoReveal": { "startFrame": 600, "duration": 60 },
+        "radarPulse": { "startFrame": 660, "duration": 300, "rings": [100, 200, 300, 400, 500] },
+        "sirenWave": { "startFrame": 780, "duration": 120 },
+        "soldiersMove": { "startFrame": 900, "duration": 180 },
+        "textReveal": { "startFrame": 720, "duration": 45 }
+      }
+    },
+    {
+      "id": "result",
+      "label": "Scene 3 — The Result",
+      "startFrame": 1200,
+      "durationFrames": 600,
+      "theme": {
+        "background": "#050a05",
+        "primary": "#00cc44",
+        "secondary": "#00ff66",
+        "text": "#ffffff",
+        "accent": "#ffcc00"
+      },
+      "content": {
+        "superTitle": "SOLDIERS PROTECTED",
+        "battlefield": "EMPTY BATTLEFIELD",
+        "droneStatus": "DRONE: NEUTRALIZED",
+        "title": "DRONEWATCH",
+        "tagline": "BECAUSE EVERY SECOND COUNTS.",
+        "finalCard": "DRONEWATCH — Protecting Those Who Protect Us"
+      },
+      "animations": {
+        "emptyBattlefield": { "startFrame": 1200, "duration": 120 },
+        "droneApproach": { "startFrame": 1320, "duration": 120 },
+        "droneImpact": { "startFrame": 1440, "duration": 60 },
+        "soldiersShown": { "startFrame": 1500, "duration": 120 },
+        "finalCard": { "startFrame": 1620, "duration": 180 },
+        "textReveal": { "startFrame": 1200, "duration": 45 }
+      }
+    }
+  ]
+}
