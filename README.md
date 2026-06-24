@@ -39,7 +39,7 @@ This project demonstrates that a management student with no coding background ca
 
 ```bash
 # Clone the repository
-git clone <your-github-repo-url>
+git clone https://github.com/TomFreerun321/BiuTATA1-ex06.git
 cd dronewatch/remotion-project
 
 # Install dependencies
