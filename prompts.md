@@ -77,6 +77,51 @@ All prompts used during production, in order. Model: claude-sonnet-4-6
 
 ---
 
+## PROMPT 007 — YouTube Background Music
+**Stage:** Audio Enhancement
+**Tool:** Claude Code + yt-dlp + ffmpeg
+**Prompt:**
+> "Use this as main audio background and effects: https://www.youtube.com/watch?v=Ci1S5fqBAqU — download the audio, convert to WAV, and wire it as the main background music throughout all 60 seconds. Keep the SFX layers on top."
+
+**Result:** `yt-dlp` installed via brew, audio downloaded as webm, converted to WAV via ffmpeg (49MB, 4:37). Composition.tsx updated — YouTube track at 82% volume as main background, existing SFX layered on top.
+
+---
+
+## PROMPT 008 — Scene 3 Soldiers Visibility + Siren Mix
+**Stage:** Visual Polish + Audio Mix
+**Tool:** Claude Code
+**Prompt:**
+> "On the last scene make the soldier more visible and mute a bit the sound of the radar (only last scene)."
+
+**Result:** Scene3Result.tsx rebuilt — soldiers enlarged from 8px circles to full head+helmet+shoulders silhouettes in larger windows, interior warm glow added. Siren volume fades 0.65→0.20 over 3 seconds entering Scene 3 via volume callback function.
+
+---
+
+## PROMPT 009 — Voice-Over Narration
+**Stage:** Voice-Over
+**Tool:** Claude Code + macOS `say` + ffmpeg
+**Prompt:**
+> "Go do so — add voice-over narration across all 3 scenes."
+
+**Result:** 3 WAV voice-over files generated using macOS TTS (`say -v Daniel`, British English, rates 130–140 WPM). Wired into Composition.tsx at frames 90, 660, 1260. Final MP4 re-rendered with all audio layers.
+
+**Lines recorded:**
+- Scene 1: *"Fiber optic drones. Silent. Precise. Lethal. Soldiers on the open battlefield... with no warning. No time."*
+- Scene 2: *"DRONEWATCH activated. Four hundred to five hundred meter detection radius. Alert time — under three seconds. Soldiers alerted. Soldiers moving. Soldiers safe."*
+- Scene 3: *"Empty battlefield. Drone neutralized. Every soldier protected. DRONEWATCH — because every second counts."*
+
+---
+
+## PROMPT 010 — Final Audit & GitHub Push
+**Stage:** Submission
+**Tool:** Claude Code + gh CLI
+**Prompt:**
+> "Did you miss anything? Double check all submit files."
+
+**Result:** Full gap audit performed. Added: `audio_generate.py`, `music.md`, `screenshots/` folder (6 images), Claude Code CLI session screenshot, updated README and tokens-log. Git history finalized with 6 commits. Pushed to GitHub via `gh` CLI.
+
+---
+
 ## Skills Summary
 
 | Skill | Activated | Purpose |

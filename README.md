@@ -82,24 +82,46 @@ dronewatch/
     │       ├── RadarPulse.tsx    # Animated radar pulse rings
     │       └── TextReveal.tsx    # Fade+slide text animation
     └── public/
+        ├── yt-audio.wav          # YouTube cinematic background music (main track)
         ├── siren.wav             # Generated alert siren (oscillating 800–1600Hz)
-        └── ambient.wav           # Generated battlefield ambient hum
+        ├── ambient.wav           # Generated battlefield ambient hum
+        ├── scene1-drone.wav      # Drone propeller buzz SFX (rises as drone approaches)
+        ├── scene1-impact.wav     # Explosion impact SFX
+        ├── scene1-action.wav     # Dramatic military action score
+        ├── vo_scene1.wav         # Voice-over: "Fiber optic drones. Silent. Precise. Lethal."
+        ├── vo_scene2.wav         # Voice-over: "DRONEWATCH activated. 400–500m radius..."
+        └── vo_scene3.wav         # Voice-over: "Empty battlefield. Drone neutralized."
 ```
 
 ---
 
 ## Audio Production
 
-Audio was generated programmatically using Python's built-in `wave` module — no external libraries required.
+The video uses a 4-layer audio stack: background music, SFX, siren, and voice-over narration.
 
-| File | Description | Generation Method |
-|------|-------------|-------------------|
-| `siren.wav` | Oscillating 800–1600Hz alert siren, 62s | Python sine wave, frequency modulated at 0.5Hz |
-| `ambient.wav` | Low-frequency battlefield hum, 62s | Python: 40/80/120Hz sine mix + low-pass filtered noise |
+| File | Description | Method |
+|------|-------------|--------|
+| `yt-audio.wav` | Cinematic orchestral background — full 60s | Downloaded via `yt-dlp`, converted with `ffmpeg` |
+| `siren.wav` | Alert siren 800–1600Hz oscillating, 62s | Python `wave` module — `audio_generate.py` |
+| `ambient.wav` | Battlefield ambient hum, 62s | Python: 40/80/120Hz sine mix + low-pass noise |
+| `scene1-drone.wav` | Quadcopter propeller buzz, 17s, rising volume | Python: 85Hz base + 8 harmonics, wobble envelope |
+| `scene1-impact.wav` | Explosion: crack + boom + shockwave, 3s | Python: noise burst + pitch-drop sine + rumble |
+| `scene1-action.wav` | Military action score: drums+strings+brass, 22s | Python: kick/snare/hi-hat + ensemble simulation |
+| `vo_scene1.wav` | *"Fiber optic drones. Silent. Precise. Lethal..."* | macOS `say -v Daniel -r 140` → ffmpeg WAV |
+| `vo_scene2.wav` | *"DRONEWATCH activated. 400–500m radius..."* | macOS `say -v Daniel -r 135` → ffmpeg WAV |
+| `vo_scene3.wav` | *"Empty battlefield. Drone neutralized..."* | macOS `say -v Daniel -r 130` → ffmpeg WAV |
 
-**Siren prompt used with Suno AI (alternative):** *"Military alert siren, rising and falling tone, urgent, no music, SFX only, 10 seconds"*
+**Audio mixing in `Composition.tsx`:**
 
-The siren is delayed to frame 600 (20 seconds) in the composition — it activates when DRONEWATCH detects the drone in Scene 2.
+| Track | Start Frame | Volume | Role |
+|-------|-------------|--------|------|
+| `yt-audio.wav` | 0 | 0.82 | Main background throughout |
+| `vo_scene1.wav` | 90 (3s) | 1.00 | Narration — Scene 1 |
+| `scene1-drone.wav` | 180 (6s) | 0.55 | SFX — drone enters |
+| `scene1-impact.wav` | 510 (17s) | 0.90 | SFX — strike |
+| `siren.wav` | 600 (20s) | 0.65→0.20 | Alert — fades in Scene 3 |
+| `vo_scene2.wav` | 660 (22s) | 1.00 | Narration — Scene 2 |
+| `vo_scene3.wav` | 1260 (42s) | 1.00 | Narration — Scene 3 |
 
 ---
 
