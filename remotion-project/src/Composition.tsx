@@ -11,6 +11,23 @@ export const DroneWatchComposition: React.FC = () => {
       {/* ── MAIN BACKGROUND MUSIC (YouTube audio — full 60s) ── */}
       <Audio src={staticFile('yt-audio.wav')} volume={0.82} />
 
+      {/* ── VOICE-OVER NARRATION ── */}
+
+      {/* Scene 1 VO — starts at frame 90 (3s) */}
+      <Sequence from={90}>
+        <Audio src={staticFile('vo_scene1.wav')} volume={1.0} />
+      </Sequence>
+
+      {/* Scene 2 VO — starts at frame 660 (2s into scene 2) */}
+      <Sequence from={660}>
+        <Audio src={staticFile('vo_scene2.wav')} volume={1.0} />
+      </Sequence>
+
+      {/* Scene 3 VO — starts at frame 1260 (2s into scene 3) */}
+      <Sequence from={1260}>
+        <Audio src={staticFile('vo_scene3.wav')} volume={1.0} />
+      </Sequence>
+
       {/* ── SCENE 1 SFX ── */}
 
       {/* Drone mechanical buzz — appears when drone enters frame (frame 180 = 6s) */}
