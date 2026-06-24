@@ -117,6 +117,11 @@ The `scenes.json` file drives all on-screen text content. Risk: if JSON string f
 
 ## Screenshots
 
+**Claude Code CLI — Agent building DRONEWATCH in real time (token count visible)**
+![Claude Code Session](screenshots/claude-code-session.png)
+
+---
+
 **Scene 1 — Soldiers on battlefield**
 ![Scene 1 - Soldiers](screenshots/scene1-soldiers.png)
 
